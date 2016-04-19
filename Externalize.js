@@ -1,16 +1,19 @@
-'use strict'
+"use strict"
 function externalize(document)
 {
-    var redExp = /^(https?)?:\/\/+$/img,
-        $a = Array.from(document.querySelectorAll("a")),
-        $area = Array.from(document.querySeletorAll("area")),
-        array = $a.concat($area)
+    var external = /^(https?)?:\/\//i,
+        $links = Array.from(document.querySelectorAll("a, area"))
 
-        array.forEach(function (func)
+        $links.forEach(function ($link)
         {
-            if(func.hasAttribute("href") && regExp.test(hasAttribute("href")))
-                    func.setAttribute("rel","external")
-                    func.setAttribute("target", "_blank")   
+            if (regExp.test($link.href))
+            {
+                Object.assign($link,
+                {
+                    rel: "external",
+                    target: "_blank"
+                })
+            }
         })
 }
 
