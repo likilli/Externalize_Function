@@ -1,7 +1,7 @@
 "use strict"
 function externalize(document)
 {
-    var external = /^(https?)?:\/\//i,
+    var regExp = /^(https?)?:\/\//i,
         $links = Array.from(document.querySelectorAll("a, area"))
 
         $links.forEach(function ($link)
